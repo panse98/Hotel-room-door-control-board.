@@ -118,8 +118,9 @@ __enable_irq();
 				
 			}
 		}
-		mode=UART_recieve();			// to choose mode
-	UART_send(mode);
+		break;
+	//	mode=UART_recieve();			// to choose mode
+	//UART_send(mode);
 		/**************************************************/
 			case checkin:
 		{
@@ -175,6 +176,7 @@ __enable_irq();
 UART_send('0');
 		}
   }
+		break;
 		/*********************************************************************/
 			case cleaning:
 		{
@@ -190,19 +192,21 @@ UART_send('0');
 		GPIO_SetPinValue(GPIO_PORT_F,GPIO_PIN_2,GPIO_LOW); // unlock
 			}// hna mfrod aktr mn solenoid 3chan aft7 bta3 l room dih t7didn?
 		}
-		
+		break;
 		
 			case checkout:
 				{
-					room_num=UART_recieve();
+					room_number=UART_recieve();
+					room_num=UART_integer(room_number);
 			
-			if (room_num==favouriteroom)
+			if (room_num==favouriteroom&& status[room_num-1])
 			   {
 			GPIO_SetPinValue(GPIO_PORT_F,GPIO_PIN_2,GPIO_HIGH); // lock tany
 				status[room_num-1]=empty;
 			
 			    }
 			}
+				break;
 		
 		
 		
