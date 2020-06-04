@@ -1,12 +1,11 @@
 #include "C:/Keil_v5/Labware/tm4c123gh6pm.h"
-//#include "GPIOprog.c"
 #include "GPIO_interface.h"
 #include "UART.h"
-//#include "Keypad.h"
 
-#define NULL 0
 
-#define empty '0'
+
+  
+#define empty '0'                /*room status*/
 #define occupied '1'
 
 
@@ -19,7 +18,6 @@
 	// global variables for set up
 	uint32_t rooms[10]={0,1,2,3,4,5,6,7,8,9}; 
 	char hotel_rooms[10];
-	/*{1,2,3,4,5}*/
 	uint32_t status[10]={empty,empty,empty,empty,empty,empty,empty,empty,empty,empty};
 	char pass[10][4];
 uint32_t password[10][4]={
